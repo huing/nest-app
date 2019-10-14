@@ -5,7 +5,7 @@ import { User } from './user.entity';
 @Controller('users')
 export class UsersController {
 
-    constructor(private service: UsersService) { }
+  constructor(private service: UsersService) { }
 
     @Get(':id')
     get(@Param() params) {
@@ -14,7 +14,7 @@ export class UsersController {
 
     @Post()
     create(@Body() user: User) {
-        return this.service.createUser(user);
+    return this.service.updateUser(user);
     }
 
     @Put()

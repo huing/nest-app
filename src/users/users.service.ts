@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, HttpCode } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
@@ -19,8 +19,10 @@ export class UsersService {
         });
     }
 
+    @HttpCode(200)
     async updateUser(user: User) {
         this.usersRepository.save(user);
+        return 'success';
     }
 
     async deleteUser(user: User) {
