@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Req, Param, Body } from '@nestjs/common';
 import { Request } from 'express';
 import { CreateCatDto } from './dto/create-cat.dto';
-import { CatsService } from './cats.service'
-import { Cat } from './interfaces/cat.interface'
+import { CatsService } from './cats.service';
+import { Cat } from './interfaces/cat.interface';
 
 @Controller('cats')
 export class CatsController {
@@ -10,7 +10,6 @@ export class CatsController {
 
   @Get('/detail')
   findDetail(@Param() params): string {
-    console.log(params);
     return `This action returns a cat`;
   }
 
@@ -26,7 +25,6 @@ export class CatsController {
 
   @Get()
   async findAll(): Promise<Cat[]> {
-    console.log(123)
     return this.catsService.findAll();
   }
 
